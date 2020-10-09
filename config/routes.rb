@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   post :create_player, to: "home#create_player"
   get :new_game, to: "home#new_game"
   post :create_game, to: "home#create_game"
+
+  resources :rooms, only: [:show]
 end
