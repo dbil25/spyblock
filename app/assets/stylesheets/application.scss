@@ -14,8 +14,8 @@
  *= require_self
  */
 
- $body-bg: #a7a7a7;
- $theme-colors: (
+$body-bg: #a7a7a7;
+$theme-colors: (
   "spy": #d86161
 );
- @import "bootstrap";
+@import "bootstrap/scss/bootstrap";
