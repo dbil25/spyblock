@@ -1,0 +1,12 @@
+
+
+<div class="d-flex flex-column">
+  <div class="d-flex flex-column col-10 col-sm-8 col-md-6 col-lg-3 align-self-center">
+    <%= image_tag asset_path("logo.png"), width: "100%", height: "auto" %>
+    <%= form_with model: @player, url: create_player_path do |f| %>
+      <%= f.text_field :name, class: "form-control text-center m-2", placeholder: "Player Name" %>
+      <%= f.text_field :room_code, class: "form-control text-center m-2", placeholder: "Room Code" %>
+      <%= f.submit "Join game" , class: "m-2 btn btn-spy col-12"%>
+    <% end %>
+  </div>
+</div>
