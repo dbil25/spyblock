@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class ExampleReflex < ApplicationReflex
-  def print
-    puts "ASDFASDFADF"
-  end
   # Add Reflex methods in this file.
   #
   # All Reflex instances expose the following properties:

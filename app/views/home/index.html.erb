@@ -1,9 +1,4 @@
 
-
-<div class="d-flex flex-column">
-  <div class="d-flex flex-column col-10 col-sm-8 col-md-6 col-lg-3 align-self-center">
-    <%= image_tag asset_path("logo.png"), width: "100%", height: "auto" %>
-    <%= link_to "Create game", new_game_path(), class: "btn m-2 btn-spy", type: "button" %>
-    <%= link_to "Join game", join_game_path(), class: "btn m-2 btn-spy", type: "button" %>
-  </div>
-</div>
+<%= image_tag asset_path("logo.png"), width: "100%", height: "auto" %>
+<%= link_to "Create game", new_game_path(), class: "btn m-2 btn-spy", type: "button" %>
+<%= link_to "Join game", join_game_path(), class: "btn m-2 btn-spy", type: "button" %>

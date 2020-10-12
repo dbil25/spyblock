@@ -7,6 +7,6 @@ class RoomsController < ApplicationController
   private
 
   def set_room
-    @room = Room.find(params[:id])
+    @room = Room.includes(:players).find(params[:id])
   end
 end

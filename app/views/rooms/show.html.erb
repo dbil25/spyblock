@@ -1,1 +1,15 @@
-<%= @room.code %>
+<div data-controller="room">
+  <div data-target="room.roomId", data-room-id="<%= @room.id %>">
+  <div class="text-center">
+    Your room code:
+  </div>
+  <div class="h3 text-center font-code font-weight-bold">
+    <%= @room.code %>
+  </div>
+  <div class="mt-3 text-center">
+    players in game:
+  </div>
+  <div reflex-player-list data-action="room:joined@document->room#refreshPlayers" data-target="room.playerList" data-reflex-action="RoomReflex#refreshPlayers">
+    <%= render partial: "shared/player", collection: @room.players %>
+  </div>
+</div>

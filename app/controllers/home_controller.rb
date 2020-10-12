@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  include CableReady::Broadcaster
+
   def index
   end
 
@@ -7,11 +9,18 @@ class HomeController < ApplicationController
   end
 
   def create_player
-    @room = Room.find(game_params.slice(:room_code))
-    @player = Player.new(game_params.splice(:name), room: @room)
+    @room = Room.includes(:players).find_by(code: game_params[:room_code])
+    @player = Player.new(game_params.slice(:name).merge(room: @room))
     if @player.save
       session[:player_id] = @player.id
       @player.update(room: @room)
+      cable_ready["room_#{@room.id}"].dispatch_event(
+        name: "room:joined", detail: {
+          player_name: @player.name,
+          player_color: @player.color
+        }
+      )
+      cable_ready.broadcast
       redirect_to room_path(@room)
     else
       render :join_game
